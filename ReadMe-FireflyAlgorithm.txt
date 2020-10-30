@@ -1,5 +1,5 @@
 ****************************************************************************************************
-Author:	Rishabh Jaiswal
+Author:	Yaswanth Kumar Gurram
 Date:	Sept 28, 2020
 Desc:	This is how to compile and run the Firefly Algorithm using Processing IDE.
 
