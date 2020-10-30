@@ -3,7 +3,7 @@ from future import division import random import math
 
 #--- COST FUNCTION
 
-function we are attempting to optimize (minimize)
+# function we are attempting to optimize (minimize)
 
 def func1(x): total=0 for i in range(len(x)): total+=x[i]**2 return total
 
@@ -13,7 +13,7 @@ def func1(x): total=0 for i in range(len(x)): total+=x[i]**2 return total
         self.velocity_i.append(random.uniform(-1,1))
         self.position_i.append(x0[i])
 
-# evaluate current fitness
+#evaluate current fitness
 def evaluate(self,costFunc):
     self.err_i=costFunc(self.position_i)
 
@@ -22,7 +22,7 @@ def evaluate(self,costFunc):
         self.pos_best_i=self.position_i
         self.err_best_i=self.err_i
 
-# update new particle velocity
+#update new particle velocity
 def update_velocity(self,pos_best_g):
     w=0.5       # constant inertia weight (how much to weigh the previous velocity)
     c1=1        # cognative constant
@@ -36,7 +36,7 @@ def update_velocity(self,pos_best_g):
         vel_social=c2*r2*(pos_best_g[i]-self.position_i[i])
         self.velocity_i[i]=w*self.velocity_i[i]+vel_cognitive+vel_social
 
-# update the particle position based off new velocity updates
+#update the particle position based off new velocity updates
 def update_position(self,bounds):
     for i in range(0,num_dimensions):
         self.position_i[i]=self.position_i[i]+self.velocity_i[i]
