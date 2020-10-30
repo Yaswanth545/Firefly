@@ -1,20 +1,20 @@
 # Firefly
-from future import division import random import math
+    from future import division import random import math
 
-#--- COST FUNCTION
+    # COST FUNCTION
 
-# function we are attempting to optimize (minimize)
+    # function we are attempting to optimize (minimize)
 
-def func1(x): total=0 for i in range(len(x)): total+=x[i]**2 return total
+    def func1(x): total=0 for i in range(len(x)): total+=x[i]**2 return total
 
-#--- MAIN class Particle: def init(self,x0): self.position_i=[] # particle position self.velocity_i=[] # particle velocity self.pos_best_i=[] # best position individual self.err_best_i=-1 # best error individual self.err_i=-1 # error individual
+    # MAIN class Particle: def init(self,x0): self.position_i=[] # particle position self.velocity_i=[] # particle velocity self.pos_best_i=[] # best position individual self.err_best_i=-1 # best error individual self.err_i=-1 # error individual
 
     for i in range(0,num_dimensions):
         self.velocity_i.append(random.uniform(-1,1))
         self.position_i.append(x0[i])
 
-# evaluate current fitness
-def evaluate(self,costFunc):
+    # evaluate current fitness
+    def evaluate(self,costFunc):
     self.err_i=costFunc(self.position_i)
 
     # check to see if the current position is an individual best
@@ -22,8 +22,8 @@ def evaluate(self,costFunc):
         self.pos_best_i=self.position_i
         self.err_best_i=self.err_i
 
-# update new particle velocity
-def update_velocity(self,pos_best_g):
+    # update new particle velocity
+    def update_velocity(self,pos_best_g):
     w=0.5       # constant inertia weight (how much to weigh the previous velocity)
     c1=1        # cognative constant
     c2=2        # social constant
@@ -36,8 +36,8 @@ def update_velocity(self,pos_best_g):
         vel_social=c2*r2*(pos_best_g[i]-self.position_i[i])
         self.velocity_i[i]=w*self.velocity_i[i]+vel_cognitive+vel_social
 
-#update the particle position based off new velocity updates
-def update_position(self,bounds):
+    # update the particle position based off new velocity updates
+    def update_position(self,bounds):
     for i in range(0,num_dimensions):
         self.position_i[i]=self.position_i[i]+self.velocity_i[i]
 
@@ -49,7 +49,7 @@ def update_position(self,bounds):
         if self.position_i[i] < bounds[i][0]:
             self.position_i[i]=bounds[i][0]
 
-class PSO(): def init(self,costFunc,x0,bounds,num_particles,maxiter): global num_dimensions
+    class PSO(): def init(self,costFunc,x0,bounds,num_particles,maxiter): global num_dimensions
 
     num_dimensions=len(x0)
     err_best_g=-1                   # best error for group
@@ -84,8 +84,8 @@ class PSO(): def init(self,costFunc,x0,bounds,num_particles,maxiter): global num
     print pos_best_g
     print err_best_g
 
-if name == "PSO": main()
+    if name == "PSO": main()
 
-#--- EXECUTE
+    # EXECUTE
 
-initial=[5,5] # initial starting location [x1,x2...] bounds=[(-10,10),(-10,10)] # input bounds [(x1_min,x1_max),(x2_min,x2_max)...] PSO(func1,initial,bounds,num_particles=15,maxiter=30)
+    initial=[5,5] # initial starting location [x1,x2...] bounds=[(-10,10),(-10,10)] # input bounds [(x1_min,x1_max),(x2_min,x2_max)...]             PSO(func1,initial,bounds,num_particles=15,maxiter=30)
