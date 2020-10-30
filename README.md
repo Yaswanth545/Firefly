@@ -13,7 +13,7 @@ def func1(x): total=0 for i in range(len(x)): total+=x[i]**2 return total
         self.velocity_i.append(random.uniform(-1,1))
         self.position_i.append(x0[i])
 
-#evaluate current fitness
+# evaluate current fitness
 def evaluate(self,costFunc):
     self.err_i=costFunc(self.position_i)
 
@@ -22,7 +22,7 @@ def evaluate(self,costFunc):
         self.pos_best_i=self.position_i
         self.err_best_i=self.err_i
 
-#update new particle velocity
+# update new particle velocity
 def update_velocity(self,pos_best_g):
     w=0.5       # constant inertia weight (how much to weigh the previous velocity)
     c1=1        # cognative constant
